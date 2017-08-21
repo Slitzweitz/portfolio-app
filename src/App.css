@@ -1,0 +1,52 @@
+.App {
+  text-align: center;
+}
+
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+  border-color: #222;
+}
+.App-headshot {
+  height: 140px;
+  display: none;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 200px;
+  color: white;
+}
+
+.App-intro {
+  margin-top: 55px;
+  font-size: large;
+}
+
+.top-stack, .profiles-stack, .fcc-stack, .contact-stack, .sandbox-stack {
+  margin: 50px;
+  height: 300px;
+}
+
+.col-xs-2{
+  display: inline;
+}
+/*.profiles-stack {
+  margin: 50px;
+}
+.fcc-stack {
+  margin: 50px;
+}
+.contact-stack {
+  margin: 50px;
+}
+*/
+.sandbox-stack {
+  margin-bottom: 250px;
+  }
+/*
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}*/
