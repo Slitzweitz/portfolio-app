@@ -1,74 +1,9 @@
 import React, { Component } from 'react';
-import {  FormGroup, FormControl, ControlLabel, HelpBlock, Button } from 'react-bootstrap';
+import {  FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
+import { apiData } from '../apiData';
+import fetch from 'isomorphic-fetch';
 
-const apiUrls = {
-  header: {
-    reqtype: "GET",
-    encType: "application/json",
-    primaryURL:  "https://aqueous-plains-86069.herokuapp.com/app/whoami",
-    instr: "Sends back IP address and location of that IP. No params needed.",
-    hideQuery: true
-  },
-  shortener: {
-    reqtype: "GET",
-    encType: "application/json",
-    primaryURL:  "https://blooming-cove-78461.herokuapp.com/",
-    instr: "Enter a valid url, get a permalink (e.g. https://blooming-cove-78461.herokuapp.com/1234)",
-    queryDesc: "Enter a valid URL"
-  },
-  image: {
-    reqtype: "GET",
-    encType: "application/json",
-    primaryURL:  "https://heather-glockenspiel.glitch.me/img/",
-    AltURL: "https://heather-glockenspiel.glitch.me/img/recent/",
-    instr: "Enter one or more search terms, separated by spaces. Use /recent/ to path to see recent searches",
-    queryDesc: "Enter a search term"
-  },
-  timestamp: {
-    reqtype: "GET",
-    encType: "application/json",
-    primaryURL:  "https://peaceful-mesa-30915.herokuapp.com",
-    instr: "Either send current Unix time in seconds as param and get the natrual date, or vice versa",
-    queryDesc: "Enter Unix Time or Natural Date"
-  },
-  sizer: {
-    reqtype: "POST",
-    encType: "multipart/form-data",
-    primaryURL:  "https://uncovered-ocean.glitch.me/dreams",
-    instr: "Upload a file of FormData object and get the size in bytes. Not stored in a db.",
-  }
-}
-
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
-
-class QueryBox extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      display: apiUrls.header.displayQuery
-    }
-  }
-  render() {
-    return (
-      <form>
-        <FieldGroup
-          id="theQuery"
-          type="text"
-          label="Query"
-          placeholder="Enter query"
-        />
-      </form>
-    )
-  }
-}
+const apiUrls = apiData;
 
 class ApiPicker extends Component {
   constructor(props) {
@@ -78,13 +13,16 @@ class ApiPicker extends Component {
       instruction: apiUrls.header.instr,
       noQuery: true,
       curlReq: apiUrls.header.primaryURL,
-      reqMethod: apiUrls.header.reqtype
+      reqMethod: apiUrls.header.reqtype,
+      query: '',
+      results: ''
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.handleApiChange = this.handleApiChange.bind(this);
+    this.handleQueryChange = this.handleQueryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
+  handleApiChange(event) {
     var lookup = event.target.value;
     if (!apiUrls[lookup].hideQuery) {
       this.setState({
@@ -98,26 +36,81 @@ class ApiPicker extends Component {
     }
     this.setState({
       ref: event.target.value,
-      instruction: apiUrls[lookup].instr
-    });
+      instruction: apiUrls[lookup].instr,
+      curlReq: apiUrls[lookup].primaryURL,
+      reqMethod: apiUrls[lookup].reqtype,
+      query: '',
+      results: ''
+      });
     console.log('picked: ' + event.target.value);
-    // write cases for each. based on which picked, display basic instructions and sample code for curl query
-    // <code>curl {this.state.value}</code>
-  }
+  };
+
+  handleQueryChange(event) {
+    this.setState({
+        value: event.target.value,
+        query: event.target.value
+      });
+    console.log('updated query to: ' + event.target.value)
+  };
 
   handleSubmit(event) {
-    console.log('submitted: ' + this.state.ref, this.state.instruction);
-    // send req and display json results
+    /*
+    send req and display json results
+    -create a fetch for POST and GET
+    -
+
+    // */
+    // if (this.state.reqMethod === "POST") {
+    //   fetch(this.state.curlReq, {
+    //     method: 'POST',
+    //     headers: {
+    //       'Accept': 'application/json',
+    //       'Content-Type': 'application/json'
+    //     },
+    //   })
+    //   .then(res => {
+    //     const posts = {
+    //       res
+    //     }
+    //     return posts;
+    //   })
+    //   .catch(err => {
+    //     console.log(err.message);
+    //   })
+    // } else if (this.state.reqMethod === "GET") {
+
+      // create request w/ queryValue
+
+      fetch('https://cors-anywhere.herokuapp.com/' + this.state.curlReq + this.state.query)
+      .then((docs) => docs.json())
+      .then((docsJson) => {
+        const posts = {
+          docsJson
+        }
+        // update state here and insert response
+        // react cannot render an object,
+        // so need to map out the keys and values ?into a code element?
+        var x = Object.entries(docsJson);
+
+        const listItems = x.map((doc) =>
+          <li key={doc.toString()}>{doc[0]}: {doc[1]}</li>
+        );
+        this.setState({
+          results: listItems
+        })
+      })
+      .catch(err => {
+        console.error(err);
+      });
     event.preventDefault();
   }
 
-//  remember, the value of the SELECT element is what is being modified
   render() {
     return (
       <form onSubmit={this.handleSubmit} type={this.state.encodeType} method={this.state.reqMethod}>
         <FormGroup>
           <ControlLabel>Select API:</ControlLabel>
-          <FormControl componentClass="select" value={this.state.ref} onChange={this.handleChange}>
+          <FormControl componentClass="select" value={this.state.ref} onChange={this.handleApiChange}>
             <option value="header">Header Parser</option>
             <option value="shortener">Url Shortener</option>
             <option value="image">Image Metadata Search</option>
@@ -131,16 +124,108 @@ class ApiPicker extends Component {
           {this.state.instruction}
         </FormControl.Static>
         </FormGroup>
-        <FormGroup hidden={this.state.noQuery}>
+        <FormGroup controlId="formQuery" hidden={this.state.noQuery}>
           <ControlLabel>Query:</ControlLabel>
-          <FormControl type="text" placeholder="query goes here" />
+          <FormControl type="text" value={this.state.query} onChange={this.handleQueryChange} />
         </FormGroup>
         <Button type="submit">
           Submit
         </Button>
+        <div className="response-landing">
+          <ul>
+            {this.state.results}
+          </ul>
+        </div>
       </form>
     );
   }
 }
 
 export default ApiPicker;
+
+//
+// function FieldGroup({ id, label, help, ...props }) {
+//   return (
+//     <FormGroup controlId={id}>
+//       <ControlLabel>{label}</ControlLabel>
+//       <FormControl {...props} />
+//       {help && <HelpBlock>{help}</HelpBlock>}
+//     </FormGroup>
+//   );
+// }
+//
+// class QueryBox extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       display: apiUrls.header.displayQuery
+//     }
+//   }
+//   render() {
+//     return (
+//       <form>
+//         <FieldGroup
+//           id="theQuery"
+//           type="text"
+//           label="Query"
+//           placeholder="Enter query"
+//         />
+//       </form>
+//     )
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// console.log(unixcalc(Date.now()));
+// let unixcalc = (d) => { Math.floor(d / 1000) }

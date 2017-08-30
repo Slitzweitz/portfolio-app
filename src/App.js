@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import headshot from './UpdatedHeadshot.jpg';
-import { Grid, Row, Col, PageHeader, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader, FormGroup, ControlLabel, FormControl, HelpBlock, Button, ProgressBar } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
 import './App.css';
@@ -36,31 +36,22 @@ class App extends Component {
           <Row className="about-stack" id="about-stack">
             <Col xs={4} md={6} mdOffset={3} xsOffset={4}>
             <p>
-            I'm a bright young problem solver with five years of professional customer service and sales experience. I know there are no excuses in the real world, and I'll have no problem telling you what I can and can't do. Use the contact form below if you have any questions.
+            I'm a bright young problem solver with five years of professional customer service and sales experience. I know there are no excuses in the real world, and I'll have no problem telling you what I can and cannot do. Use the contact form below if you have any questions.
             </p>
             </Col>
           </Row>
           <Row className="profiles-stack" id="profiles-stack">
             <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-            <p>
-            Let's get right to it, here are samples of my work:
-            </p>
-              <p className="App-github">
+              <p>
+                Let's get right to it, here are samples of my work:<br />
                 Check out my <a href="https://github.com/Slitzweitz">GitHub here</a>
               </p>
-                  <ul> turn this into cards
-                    <li>Custom Stateful React Components</li>
-                    <li>APIs built with Express</li>
-                    <li>Data Storage using MongoDB (mLab)</li>
-                    <li>AWS application hosting, administration</li>
-                  </ul>
             </Col>
           </Row>
           <Row className="fcc-stack">
             <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
               <p className="App-fcc">
-                Follow my progress on <a href="https://www.freecodecamp.org/slitzweitz">FreeCodeCamp here</a>. <br />Front and Back End Certification coming soon! (show viz with % to complete)
-              </p>
+                Follow my progress on <a href="https://www.freecodecamp.org/slitzweitz">FreeCodeCamp here</a>. <br />Front-End Certification</p><ProgressBar active striped bsStyle="success" now={71} /> <p>Back End Certification</p><ProgressBar active striped bsStyle="success" now={41}  />
             </Col>
           </Row>
           <Row className="sandbox-stack">
@@ -71,6 +62,16 @@ class App extends Component {
             </Col>
             <Col lg={4} md={6} mdOffset={3} lgOffset={4}>
               <ApiPicker />
+            </Col>
+          </Row>
+          <Row className="spotifybutton-stack">
+            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+              <p className="spotifybutton-intro">
+                Here is a visualization showing my Amazon IOT Button use:
+              </p>
+              <p className="spotifybutton-outro">
+              What did I learn in making the API sandbox? CORS headers, Access-Control-Allow-Origin, proxying api requests in development,
+              </p>
             </Col>
           </Row>
           <Row className="contact-stack" id="contact-stack">
@@ -113,3 +114,15 @@ class App extends Component {
 }
 
 export default App;
+
+
+// <Col lg={4} md={6} mdOffset={3} lgOffset={4}>
+//   <AmazonButton />
+// </Col>
+
+// <ul> turn this into cards
+// <li>Custom Stateful React Components</li>
+// <li>APIs built with Express</li>
+// <li>Data Storage using MongoDB (mLab)</li>
+// <li>AWS application hosting, administration</li>
+// </ul>
