@@ -47,12 +47,23 @@ li {
 }
 */
 .sandbox-stack {
-  
-  margin-bottom: 250px;
+  height: 700px;
+}
+
+.api-dropdown {
+  height: 50px;
+}
+
+.skill-instruction-split {
+  margin-top: 55px;
+}
+
+.skills-sandbox, .instruction-sandbox {
+  height: 225px;
 }
 
 .response-landing {
-    margin: 50px;
+    height: 175px;
     font-size: 24px;
 }
 

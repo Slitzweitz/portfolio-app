@@ -55,12 +55,7 @@ class App extends Component {
             </Col>
           </Row>
           <Row className="sandbox-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-              <p className="sandboxer-intro">
-                Here is a sandboxer for some of my custom built <b>full stack</b> APIs:
-              </p>
-            </Col>
-            <Col lg={4} md={6} mdOffset={3} lgOffset={4}>
+            <Col>
               <ApiPicker />
             </Col>
           </Row>

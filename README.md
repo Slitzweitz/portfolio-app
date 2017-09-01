@@ -1,10 +1,10 @@
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). It was otherwise built by Colin Barlow.
 
 Currently working on:
-- Finish API sandboxer (enable CORS on my APIs)
+- Finish API sandboxer (File Sizer integration)
 - Theme/styling
-- Project Showcase section
-
+- Project Showcase section (API Sandboxer, WikiSearch, Pomodoro Clock)
+  -each project gets a panel
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
