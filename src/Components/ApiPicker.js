@@ -19,6 +19,7 @@ class ApiPicker extends Component {
       queryType: 'text',
       results: '',
       button: 'primary',
+      skills: apiUrls.header.skills,
       buttonText: 'Submit'
     };
     this.handleApiChange = this.handleApiChange.bind(this);
@@ -48,6 +49,7 @@ class ApiPicker extends Component {
       queryType: apiUrls[lookup].queryType,
       results: '',
       button: 'primary',
+      skills: apiUrls[lookup].skills,
       buttonText: 'Submit'
       });
     console.log('picked: ' + event.target.value);
@@ -164,7 +166,7 @@ class ApiPicker extends Component {
         <Row className="skill-instruction-split">
           <Col md={4} mdOffset={2}>
             <Panel bsStyle="success" header={this.state.header} className="skills-sandbox">
-              {this.state.instruction}
+              {this.state.skills}
             </Panel>
           </Col>
           <Col md={4}>
