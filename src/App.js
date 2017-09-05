@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import headshot from './UpdatedHeadshot.jpg';
-import { Grid, Row, Col, PageHeader, FormGroup, ControlLabel, FormControl, HelpBlock, Button, ProgressBar } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader, ProgressBar } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
+import ContactForm from './Components/ContactForm';
+import Showcase from './Components/Showcase';
 import './App.css';
-
-function FieldGroup({ id, label, help, ...props }) {
-  return (
-    <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
-    </FormGroup>
-  );
-}
 
 class App extends Component {
   render() {
@@ -49,59 +41,23 @@ class App extends Component {
             </Col>
           </Row>
           <Row className="fcc-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-              <p className="App-fcc">
-                Follow my progress on <a href="https://www.freecodecamp.org/slitzweitz">FreeCodeCamp here</a>. <br />Front-End Certification</p><ProgressBar active striped bsStyle="success" now={71} /> <p>Back End Certification</p><ProgressBar active striped bsStyle="success" now={41}  />
-            </Col>
+            <Showcase />
           </Row>
           <Row className="sandbox-stack">
             <Col>
               <ApiPicker />
             </Col>
           </Row>
-          <Row className="spotifybutton-stack">
+          <Row className="clock-stack">
             <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
               <p className="spotifybutton-intro">
-                Here is a visualization showing my Amazon IOT Button use:
+                This will be a visualization of my Amazon IoT button press times. It will be a clock face with a certain color symbol based on AM/PM, with each press plotted on the outside border of the clock at the time it was pressed.
               </p>
               <p className="spotifybutton-outro">
-              What did I learn in making the API sandbox? CORS headers, Access-Control-Allow-Origin, proxying api requests in development,
               </p>
             </Col>
           </Row>
-          <Row className="contact-stack" id="contact-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-              <form>
-                <FieldGroup
-                  id="formName"
-                  type="text"
-                  label="Name"
-                  placeholder="Your Name"
-                />
-                <FieldGroup
-                  id="formEmail"
-                  type="text"
-                  label="Email"
-                  placeholder="Your Email"
-                />
-                <FieldGroup
-                  id="formPhone"
-                  type="text"
-                  label="Phone"
-                  placeholder="Your Phone"
-                />
-                <FieldGroup
-                  id="formCompany"
-                  type="text"
-                  label="Company"
-                  placeholder="Your Company"
-                />
-                <Button type="submit">
-                  Submit
-                </Button>
-              </form>
-            </Col>
-          </Row>
+          <ContactForm />
         </Grid>
       </div>
     );

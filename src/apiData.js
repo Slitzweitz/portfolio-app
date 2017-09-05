@@ -29,7 +29,7 @@ export const apiData = {
     instr: "Enter one or more search terms, separated by spaces. Use /recent/ to path to see recent searches",
     queryDesc: "Enter a search term",
     queryType: "text",
-    skills: "This project taught me how to consume an outside API for use in my own projects. The ability to have the access to search results is becoming an integral part of daily life, and I created my own instance of Google's Custom Search Engine, and am using Google Cloud Platform to run it."
+    skills: "This project taught me how to consume an outside API for use in my own Node and Express projects. The ability to have the access to search results is becoming an integral part of daily life online and in applications, and I created my own instance of Google's Custom Search Engine, and am using Google Cloud Platform to run it."
   },
   timestamp: {
     titleMain: "Timestamp API",
@@ -46,7 +46,7 @@ export const apiData = {
     reqtype: "POST",
     encType: "multipart/form-data",
     primaryURL:  "https://uncovered-ocean.glitch.me/dreams",
-    instr: "Upload a file of FormData object and get the size in bytes. Not stored in a db.",
+    instr: "Upload a file of FormData object and get the size in bytes.",
     queryDesc: "Drop a file in here",
     queryType: "file",
     skills: "As one of the more complicated projects, writing this API taught me "

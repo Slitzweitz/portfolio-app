@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  FormGroup, FormControl, ControlLabel, Button, Grid, Row, Col, Panel } from 'react-bootstrap';
+import {  FormGroup, FormControl, ControlLabel, Label, Button, Grid, Row, Col, Panel } from 'react-bootstrap';
 import { apiData } from '../apiData';
 import fetch from 'isomorphic-fetch';
 
@@ -58,45 +58,38 @@ class ApiPicker extends Component {
   handleQueryChange(event) {
     this.setState({
         value: event.target.value,
-        query: event.target.value
+        query: event.target.value,
+        button: 'primary'
       });
     console.log('updated query to: ' + event.target.value);
   };
 
   handleSubmit(event) {
-    /*
-    send req and display json results
-    -create a fetch for POST and GET
-    -
+    if (this.state.reqMethod === "POST") {
+      var data = new FormData()
+      data.append('file', this.state.query)
 
-    // */
-    // if (this.state.reqMethod === "POST") {
-    //   fetch(this.state.curlReq, {
-    //     method: 'POST',
-    //     headers: {
-    //       'Accept': 'application/json',
-    //       'Content-Type': 'application/json'
-    //     },
-    //   })
-    //   .then(res => {
-    //     const posts = {
-    //       res
-    //     }
-    //     return posts;
-    //   })
-    //   .catch(err => {
-    //     console.log(err.message);
-    //   })
-    // } else if (this.state.reqMethod === "GET") {
-
-      // create request w/ queryValue
-
-      fetch('https://cors-anywhere.herokuapp.com/' + this.state.curlReq + this.state.query)
+      fetch('https://cors-anywhere.herokuapp.com/' + this.state.curlReq + this.state.query, {
+        method: "POST",
+        body: data
+      })
       .then((docs) => docs.json())
       .then((docsJson) => {
-        const posts = {
+        var posts = {
           docsJson
         }
+        this.setState({
+          results: posts
+        })
+      })
+      .catch(err => {
+        console.log(err.message);
+      })
+    } else {
+      // create request w/ queryValue
+      fetch('https://cors-anywhere.herokuapp.com/' + this.state.curlReq + this.state.query, { method: this.state.reqMethod })
+      .then((docs) => docs.json())
+      .then((docsJson) => {
         // NOTE: response from imgsearch API is already an Array
         // special handling for the array:
         if (Array.isArray(docsJson)) {
@@ -138,8 +131,9 @@ class ApiPicker extends Component {
           buttonText: 'Error :('
         })
       });
-      event.preventDefault();
     }
+    event.preventDefault();
+  }
 
   render() {
     return (
@@ -166,7 +160,10 @@ class ApiPicker extends Component {
         <Row className="skill-instruction-split">
           <Col md={4} mdOffset={2}>
             <Panel bsStyle="success" header={this.state.header} className="skills-sandbox">
-              {this.state.skills}
+              {this.state.skills}<br />
+              <Label bsStyle="success">Express</Label>&nbsp;
+              <Label bsStyle="success">Nodejs</Label>&nbsp;
+              <Label bsStyle="success">HTTP</Label>&nbsp;
             </Panel>
           </Col>
           <Col md={4}>

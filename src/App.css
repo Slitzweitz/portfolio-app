@@ -47,7 +47,7 @@ li {
 }
 */
 .sandbox-stack {
-  height: 700px;
+  min-height: 700px;
 }
 
 .api-dropdown {
@@ -59,11 +59,12 @@ li {
 }
 
 .skills-sandbox, .instruction-sandbox {
-  height: 225px;
+  min-height: 200px;
+  max-height: 375px;
 }
 
 .response-landing {
-    height: 175px;
+    min-height: 175px;
     font-size: 24px;
 }
 
