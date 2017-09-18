@@ -26,7 +26,7 @@ export const apiData = {
     encType: "application/json",
     primaryURL:  "https://heather-glockenspiel.glitch.me/img/",
     AltURL: "https://heather-glockenspiel.glitch.me/img/recent/",
-    instr: "Enter one or more search terms, separated by spaces. Use /recent/ to path to see recent searches",
+    instr: "Enter one or more search terms, separated by spaces. Use /recent/ to see recent searches",
     queryDesc: "Enter a search term",
     queryType: "text",
     skills: "This project taught me how to consume an outside API for use in my own Node and Express projects. The ability to have the access to search results is becoming an integral part of daily life online and in applications, and I created my own instance of Google's Custom Search Engine, and am using Google Cloud Platform to run it."

@@ -17,6 +17,7 @@
   height: 150px;
   padding: 200px;
   color: white;
+  position: relative;
 }
 
 .App-intro {
@@ -24,30 +25,47 @@
   font-size: large;
 }
 
-.top-stack, .profiles-stack, .fcc-stack, .contact-stack, .sandbox-stack {
-  margin: 50px;
-  height: 300px;
-}
-
 li {
   list-style-type: none;
+}
+
+.top-stack {
+  margin: 50px;
+  height: 400px;
+}
+
+.profiles-stack {
+  min-height: 450px;
+}
+
+.about-stack {
+  min-height: 450px;
+}
+
+.frontend {
+  height: 400px;
 }
 
 .col-xs-2{
   display: inline;
 }
-/*.profiles-stack {
-  margin: 50px;
+
+.frontend {
+  min-height: 265px;
 }
-.fcc-stack {
-  margin: 50px;
-}
-.contact-stack {
-  margin: 50px;
-}
-*/
+
 .sandbox-stack {
-  min-height: 700px;
+  margin-top: 100px;
+  height: 1200px;
+}
+
+.fcc-stack {
+  margin-top: 65px;
+  height: 950px;
+}
+
+.contact-stack {
+  min-height: 450px;
 }
 
 .api-dropdown {

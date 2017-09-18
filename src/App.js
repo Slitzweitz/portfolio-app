@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import headshot from './UpdatedHeadshot.jpg';
-import { Grid, Row, Col, PageHeader, ProgressBar } from 'react-bootstrap';
+import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
 import ContactForm from './Components/ContactForm';
@@ -21,42 +21,37 @@ class App extends Component {
               <p className="App-intro">
                 Welcome to my portfolio page!
               </p>
-              have icons for github and fcc animate in here, or inbetween about-stack (skinny custom css)
               <img src={headshot} className="App-headshot" alt="headshot" />
             </Col>
           </Row>
+          <Row className="sandbox-stack" id="sandbox-stack">
+          <PageHeader>
+          My API Sandbox
+          </PageHeader>
+          <ApiPicker />
+          </Row>
           <Row className="about-stack" id="about-stack">
-            <Col xs={4} md={6} mdOffset={3} xsOffset={4}>
+            <Col md={6} mdOffset={3}>
             <p>
-            I'm a bright young problem solver with five years of professional customer service and sales experience. I know there are no excuses in the real world, and I'll have no problem telling you what I can and cannot do. Use the contact form below if you have any questions.
+            I'I have been developing my own React projects for the past two years as well as attending meetups in San Diego. As soon as I fired up create-react-app, I knew that modern JavaScript frameworks were here to stay. State, re-usable components, and routing are among my favorite features of React. The modern feel of developing in ES6/Webpack/Babel continuous deployment environment allow for rapid improvements and a focus on progress I have not felt elsewhere.
             </p>
             </Col>
           </Row>
           <Row className="profiles-stack" id="profiles-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+            <Col md={6} mdOffset={3}>
               <p>
                 Let's get right to it, here are samples of my work:<br />
-                Check out my <a href="https://github.com/Slitzweitz">GitHub here</a>
+                Check out my <a href="https://github.com/Slitzweitz">GitHub here</a> to see Node/Express APIs which you can also test in the sandbox below. The best place to see front end projects is <a href="https://codepen.io/Slitzweitz">my Codepen profile</a>. If you would like to see my self hosted LEMP app, <a href="https://colinmbarlow.com">click here</a>.
               </p>
             </Col>
           </Row>
+          <PageHeader>
+          Front-End Projects
+          </PageHeader>
           <Row className="fcc-stack">
             <Showcase />
           </Row>
-          <Row className="sandbox-stack">
-            <Col>
-              <ApiPicker />
-            </Col>
-          </Row>
-          <Row className="clock-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-              <p className="spotifybutton-intro">
-                This will be a visualization of my Amazon IoT button press times. It will be a clock face with a certain color symbol based on AM/PM, with each press plotted on the outside border of the clock at the time it was pressed.
-              </p>
-              <p className="spotifybutton-outro">
-              </p>
-            </Col>
-          </Row>
+          <PageHeader>Contact Me</PageHeader>
           <ContactForm />
         </Grid>
       </div>

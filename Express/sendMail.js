@@ -1,16 +1,25 @@
 // Express server to send contact form data.
 // Contact form will POST to: /contact on port: 8080
 var app = require('express')(),
-    mailer = require('express-mailer');
+    mailer = require('express-mailer'),
+    bodyParser = require('body-parser'),
+    expressValidator = require('express-validator');
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail'),
       port = process.env.PORT || 3001;
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator())
 
 app.post('/contact', (req, res) => {
   // server block to send the email to myself with all contact form information
+  // make sure expects application/json
   // req.body will contain information
+  // validate and sanitize info:
+  req.checkBody('name', 'Invalid name').isAlpha().catch((err) => {});
+
   if (req.body) {
     console.log(req.body);
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -23,6 +32,8 @@ app.post('/contact', (req, res) => {
     };
     sgMail.send(msg);
     res.send('Message sent!')
+  } else {
+    res.send('no body on the request, message not sent');
   }
 })
 

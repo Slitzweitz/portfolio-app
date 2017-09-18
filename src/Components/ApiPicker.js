@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {  FormGroup, FormControl, ControlLabel, Label, Button, Grid, Row, Col, Panel } from 'react-bootstrap';
+import {  FormGroup, FormControl, ControlLabel, Label, Button, Row, Col, Panel } from 'react-bootstrap';
 import { apiData } from '../apiData';
 import fetch from 'isomorphic-fetch';
 
@@ -138,7 +138,6 @@ class ApiPicker extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} type={this.state.encodeType} method={this.state.reqMethod}>
-      <Grid>
         <Row>
           <Col md={6} mdOffset={2}>
             <FormGroup>
@@ -187,7 +186,6 @@ class ApiPicker extends Component {
 
           </Col>
         </Row>
-        </Grid>
       </form>
     );
   }

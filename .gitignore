@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/Express/node_modules
 /src/react-backend/node_modules
 
 # testing

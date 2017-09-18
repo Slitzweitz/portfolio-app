@@ -7,9 +7,9 @@ import { Row, Col, FormGroup, ControlLabel, FormControl, HelpBlock, Button } fro
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}>
-      <ControlLabel>{label}</ControlLabel>
-      <FormControl {...props} />
-      {help && <HelpBlock>{help}</HelpBlock>}
+    <ControlLabel>{label}</ControlLabel>
+    <FormControl {...props} />
+    {help && <HelpBlock>{help}</HelpBlock>}
     </FormGroup>
   );
 }
@@ -21,30 +21,52 @@ class ContactForm extends Component {
       personName: '',
       email: '',
       phone: '',
-      company: ''
+      company: '',
+      value: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(event) {
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    })
   }
 
   handleSubmit(event) {
     event.preventDefault();
     // send to the express server
-    fetch('http://localhost:3001/contact', {
+    // create new Form Data object
+    var formobj = new FormData();
+    //
+    var reqbody = {
+      "personName": this.state.personName,
+      "email": this.state.email,
+      "phone": this.state.phone,
+      "company": this.state.company
+    };
+
+    for (var x in reqbody.entries()) {
+      formobj.append(x, reqbody[x]);
+    };
+
+    console.log(formobj);
+
+    fetch('/contact', {
       method: 'POST',
       headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
+        "Content-Type": "application/x-www-form-urlencoded"
       },
-      body: JSON.stringify({
-        userName: this.state.personName,
-        email: this.state.email,
-        phone: this.state.phone,
-        company: this.state.company
-      })
+      body: formobj
     })
     .then(res => res.json())
     .then(resJson => {
-
+      console.log(resJson);
     })
     .catch((e) => {
       console.error(e);
@@ -60,25 +82,37 @@ class ContactForm extends Component {
               id="formName"
               type="text"
               label="Name"
+              name="personName"
               placeholder="Your Name"
+              value={this.state.personName}
+              onChange={this.handleChange}
             />
             <FieldGroup
               id="formEmail"
               type="text"
               label="Email"
+              name="email"
               placeholder="Your Email"
+              value={this.state.email}
+              onChange={this.handleChange}
             />
             <FieldGroup
               id="formPhone"
               type="text"
               label="Phone"
+              name="phone"
               placeholder="Your Phone"
+              value={this.state.phone}
+              onChange={this.handleChange}
             />
             <FieldGroup
               id="formCompany"
               type="text"
               label="Company"
+              name="company"
               placeholder="Your Company"
+              value={this.state.company}
+              onChange={this.handleChange}
             />
             <Button type="submit">
               Submit
