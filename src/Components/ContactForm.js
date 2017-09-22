@@ -45,23 +45,21 @@ class ContactForm extends Component {
     var formobj = new FormData();
     //
     var reqbody = {
-      "personName": this.state.personName,
-      "email": this.state.email,
-      "phone": this.state.phone,
-      "company": this.state.company
+      personName: this.state.personName,
+      email: this.state.email,
+      phone: this.state.phone,
+      company: this.state.company
     };
 
-    for (var x in reqbody.entries()) {
+    for (var x in reqbody) {
       formobj.append(x, reqbody[x]);
+      console.log(formobj);
     };
 
     console.log(formobj);
 
     fetch('/contact', {
       method: 'POST',
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
       body: formobj
     })
     .then(res => res.json())

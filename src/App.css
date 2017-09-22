@@ -43,7 +43,7 @@ li {
 }
 
 .frontend {
-  height: 400px;
+  min-height: 400px;
 }
 
 .col-xs-2{
@@ -61,7 +61,7 @@ li {
 
 .fcc-stack {
   margin-top: 65px;
-  height: 950px;
+  min-height: 950px;
 }
 
 .contact-stack {

@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /Express/node_modules
+/Express/sendgrid.env
 /src/react-backend/node_modules
 
 # testing
@@ -12,6 +13,7 @@
 /build
 
 # misc
+.env
 .DS_Store
 .env.local
 .env.development.local

@@ -32,8 +32,11 @@ class App extends Component {
           </Row>
           <Row className="about-stack" id="about-stack">
             <Col md={6} mdOffset={3}>
+            <h2>
+            This application started as a simple create-react-app. It now includes a totally custom API sandbox and contact form built from scratch.</h2>
+            <br />
             <p>
-            I'I have been developing my own React projects for the past two years as well as attending meetups in San Diego. As soon as I fired up create-react-app, I knew that modern JavaScript frameworks were here to stay. State, re-usable components, and routing are among my favorite features of React. The modern feel of developing in ES6/Webpack/Babel continuous deployment environment allow for rapid improvements and a focus on progress I have not felt elsewhere.
+            I've been developing my own React projects for the past two years as well as attending meetups in San Diego. As soon as I fired up create-react-app, I knew that modern JavaScript frameworks were here to stay. State, re-usable components, and routing are among my favorite features of React. The modern feel of developing in ES6/Webpack/Babel continuous deployment environment allow for rapid improvements and a focus on progress I have not felt elsewhere.
             </p>
             </Col>
           </Row>
