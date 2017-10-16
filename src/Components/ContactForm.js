@@ -58,7 +58,7 @@ class ContactForm extends Component {
 
     console.log(formobj);
 
-    fetch('/contact', {
+    fetch('https://mighty-forest-57265.herokuapp.com/contact', {
       method: 'POST',
       body: formobj
     })

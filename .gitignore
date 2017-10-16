@@ -3,7 +3,8 @@
 # dependencies
 #/node_modules
 #/Express/node_modules
-/Express/sendgrid.env
+/Express
+Express
 /src/react-backend/node_modules
 
 # testing
