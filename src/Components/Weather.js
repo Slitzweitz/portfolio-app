@@ -13,7 +13,7 @@ class Weather extends Component {
       lat: "",
       lon: ""
     };
-    // this.showPosition = this.showPosition.bind(this);
+    this.getCoords = this.getCoords.bind(this);
   }
 
   getCoords() {
