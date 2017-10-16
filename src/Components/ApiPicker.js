@@ -15,11 +15,11 @@ import fetch from 'isomorphic-fetch';
 // }
 const apiUrls = apiData;
 
-let buttonPrint = (skillsArray) => {
-  skillsArray.map(elem => {
-
-  });
-}
+// let buttonPrint = (skillsArray) => {
+//   skillsArray.map(elem => {
+//
+//   });
+// }
 
 class ApiPicker extends Component {
   constructor(props) {
