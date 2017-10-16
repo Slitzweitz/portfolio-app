@@ -16,7 +16,7 @@
     "react-scripts": "1.0.11"
   },
   "scripts": {
-    "start": "concurrently \"cd Express && npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run client\" \"cd Express && npm run server\"",
     "server": "node sendMail.js",
     "client": "react-scripts start",
     "build": "react-scripts build",
