@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import headshot from './UpdatedHeadshot.jpg';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
@@ -7,6 +6,7 @@ import Weather from './Components/Weather';
 import ContactForm from './Components/ContactForm';
 import Showcase from './Components/Showcase';
 import './App.css';
+// import headshot from './UpdatedHeadshot.jpg';
 
 class App extends Component {
   render() {
