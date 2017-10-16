@@ -13,8 +13,6 @@ class NavMenu extends Component {
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavItem eventKey={1} href="#sandbox-stack">API Sandbox</NavItem>
-          <NavItem eventKey={2} href="mailto:colinmbarlow@gmail.com">Contact Me</NavItem>
           <NavDropdown eventKey={3} title="Portfolio" id="basic-nav-dropdown">
             <MenuItem eventKey={3.1} href="https://colinmbarlow.com/img/Developer Resume Projects.pdf">Resume</MenuItem>
             <MenuItem eventKey={3.2} href="https://colinmbarlow.com">LEMP App</MenuItem>
@@ -23,7 +21,7 @@ class NavMenu extends Component {
           </NavDropdown>
         </Nav>
         <Nav pullRight>
-          <NavItem eventKey={1} href="mailto:colinmbarlow@gmail.com">Email Me</NavItem>
+          <NavItem eventKey={1} href="mailto:colinmbarlow@gmail.com">ColinMBarlow@gmail.com</NavItem>
         </Nav>
       </Navbar.Collapse>
     </Navbar>
@@ -31,3 +29,6 @@ class NavMenu extends Component {
   }
 }
 export default NavMenu;
+
+// <NavItem eventKey={1} href="#sandbox-stack">API Sandbox</NavItem>
+// <NavItem eventKey={2} href="mailto:colinmbarlow@gmail.com">Contact Me</NavItem>

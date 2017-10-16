@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "d3": "^4.10.2",
     "dns": "file:./src/mock/dns",
     "express": "^4.15.4",
     "express-mailer": "^0.3.1",

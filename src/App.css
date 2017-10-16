@@ -8,8 +8,8 @@
   border-color: #222;
 }
 .App-headshot {
-  height: 140px;
-  display: none;
+  height: 350px;
+  display: inline;
 }
 
 .App-header {
@@ -20,18 +20,13 @@
   position: relative;
 }
 
-.App-intro {
-  margin-top: 55px;
-  font-size: large;
-}
-
 li {
   list-style-type: none;
 }
 
 .top-stack {
-  margin: 50px;
-  height: 400px;
+  margin: 80px;
+  min-height: 400px;
 }
 
 .profiles-stack {
@@ -87,7 +82,15 @@ li {
 }
 
 /*
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}*/
+Clock CSS:
+*/
+
+.clock-face {
+  height: 595px;
+  width: 595px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+  background: transparent;
+  border: 2px solid black;
+}

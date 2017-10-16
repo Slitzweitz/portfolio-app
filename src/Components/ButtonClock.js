@@ -1,3 +1,7 @@
+import React, { Component } from 'react';
+import { Row, Col } from 'react-bootstrap';
+
+
 /*
   Component for Amazon IoT Button presses.
 
@@ -15,5 +19,27 @@
       -Circle, with time gridlines
         -Major gridlines: Every 90 degrees
         -Minor gridlines: Every 6 degrees
-        
+
 */
+class ButtonClock extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+    }
+  }
+  componentWillMount() {
+    var radian = 0.0174532925;
+  }
+
+  render() {
+    return (
+      <Row className="clock-stack" id="clock-stack">
+        <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+          <div className="clock-face"></div>
+        </Col>
+      </Row>
+    )
+  }
+}
+
+export default ButtonClock;

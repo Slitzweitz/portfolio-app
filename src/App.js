@@ -3,6 +3,7 @@ import headshot from './UpdatedHeadshot.jpg';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
+import Weather from './Components/Weather';
 import ContactForm from './Components/ContactForm';
 import Showcase from './Components/Showcase';
 import './App.css';
@@ -17,11 +18,26 @@ class App extends Component {
         </div>
         <Grid>
           <Row className="top-stack">
-            <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+            <Col md={4} mdOffset={2}>
               <p className="App-intro">
-                Welcome to my portfolio page!
+                Welcome to my portfolio page! Here are a few of the technologies that make this page work:
               </p>
-              <img src={headshot} className="App-headshot" alt="headshot" />
+            </Col>
+            <Col md={4}>
+              <ul>
+                <li>
+                  React Native
+                </li>
+                <li>
+                  Webpack
+                </li>
+                <li>
+                  Nodejs with Express
+                </li>
+                <li>
+                  Babel(ES6)
+                </li>
+              </ul>
             </Col>
           </Row>
           <Row className="sandbox-stack" id="sandbox-stack">
@@ -29,24 +45,6 @@ class App extends Component {
           My API Sandbox
           </PageHeader>
           <ApiPicker />
-          </Row>
-          <Row className="about-stack" id="about-stack">
-            <Col md={6} mdOffset={3}>
-            <h2>
-            This application started as a simple create-react-app. It now includes a totally custom API sandbox and contact form built from scratch.</h2>
-            <br />
-            <p>
-            I've been developing my own React projects for the past two years as well as attending meetups in San Diego. As soon as I fired up create-react-app, I knew that modern JavaScript frameworks were here to stay. State, re-usable components, and routing are among my favorite features of React. The modern feel of developing in ES6/Webpack/Babel continuous deployment environment allow for rapid improvements and a focus on progress I have not felt elsewhere.
-            </p>
-            </Col>
-          </Row>
-          <Row className="profiles-stack" id="profiles-stack">
-            <Col md={6} mdOffset={3}>
-              <p>
-                Let's get right to it, here are samples of my work:<br />
-                Check out my <a href="https://github.com/Slitzweitz">GitHub here</a> to see Node/Express APIs which you can also test in the sandbox below. The best place to see front end projects is <a href="https://codepen.io/Slitzweitz">my Codepen profile</a>. If you would like to see my self hosted LEMP app, <a href="https://colinmbarlow.com">click here</a>.
-              </p>
-            </Col>
           </Row>
           <PageHeader>
           Front-End Projects
@@ -56,6 +54,7 @@ class App extends Component {
           </Row>
           <PageHeader>Contact Me</PageHeader>
           <ContactForm />
+          <Weather />
         </Grid>
       </div>
     );
@@ -64,7 +63,15 @@ class App extends Component {
 
 export default App;
 
+/**
+<img src={headshot} className="App-headshot" alt="headshot" />
 
+
+
+
+
+
+**/
 // <Col lg={4} md={6} mdOffset={3} lgOffset={4}>
 //   <AmazonButton />
 // </Col>
@@ -75,3 +82,23 @@ export default App;
 // <li>Data Storage using MongoDB (mLab)</li>
 // <li>AWS application hosting, administration</li>
 // </ul>
+
+//
+// <Row className="about-stack" id="about-stack">
+//   <Col md={6} mdOffset={3}>
+//   <h2>
+//   This application started as a simple create-react-app. It now includes a totally custom API sandbox and contact form built from scratch.</h2>
+//   <br />
+//   <p>
+//   I've been developing my own React projects for the past two years as well as attending meetups in San Diego. As soon as I fired up create-react-app, I knew that modern JavaScript frameworks were here to stay. State, re-usable components, and routing are among my favorite features of React. The modern feel of developing in ES6/Webpack/Babel continuous deployment environment allow for rapid improvements and a focus on progress I have not felt elsewhere.
+//   </p>
+//   </Col>
+// </Row>
+// <Row className="profiles-stack" id="profiles-stack">
+// <Col md={6} mdOffset={3}>
+// <p>
+// Let's get right to it, here are samples of my work:<br />
+// Check out my <a href="https://github.com/Slitzweitz">GitHub here</a> to see Node/Express APIs which you can also test in the sandbox below. The best place to see front end projects is <a href="https://codepen.io/Slitzweitz">my Codepen profile</a>. If you would like to see my self hosted LEMP app, <a href="https://colinmbarlow.com">click here</a>.
+// </p>
+// </Col>
+// </Row>

@@ -2,8 +2,24 @@ import React, { Component } from 'react';
 import {  FormGroup, FormControl, ControlLabel, Label, Button, Row, Col, Panel } from 'react-bootstrap';
 import { apiData } from '../apiData';
 import fetch from 'isomorphic-fetch';
-
+// an object containing info for each API
+// APIname: {
+//   titleMain: "",
+//   reqtype: "GET" || "POST",
+//   encType: "application/json",
+//   primaryURL:  "https://aqueous-plains-86069.herokuapp.com/app/whoami",
+//   instr: "Sends back IP address and location of that IP. No params needed, just click Submit.",
+//   hideQuery: true,
+//   queryType: "text",
+//   skills: ["Nodejs", "Express", "API", "Routes", "HTTP Headers"]
+// }
 const apiUrls = apiData;
+
+let buttonPrint = (skillsArray) => {
+  skillsArray.map(elem => {
+
+  });
+}
 
 class ApiPicker extends Component {
   constructor(props) {
@@ -19,7 +35,7 @@ class ApiPicker extends Component {
       queryType: 'text',
       results: '',
       button: 'primary',
-      skills: apiUrls.header.skills,
+      skills: apiUrls.header.explanation,
       buttonText: 'Submit'
     };
     this.handleApiChange = this.handleApiChange.bind(this);
@@ -48,9 +64,7 @@ class ApiPicker extends Component {
       query: '',
       queryType: apiUrls[lookup].queryType,
       results: '',
-      button: 'primary',
-      skills: apiUrls[lookup].skills,
-      buttonText: 'Submit'
+      skills: apiUrls[lookup].explanation,
       });
     console.log('picked: ' + event.target.value);
   };
@@ -135,6 +149,7 @@ class ApiPicker extends Component {
     event.preventDefault();
   }
 
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} type={this.state.encodeType} method={this.state.reqMethod}>
@@ -177,13 +192,11 @@ class ApiPicker extends Component {
         </Row>
         <Row>
           <Col md={8} mdOffset={2}>
-
-              <Panel className="response-landing">Response:
-                <ul>
-                  {this.state.results}
-                </ul>
-              </Panel>
-
+            <Panel className="response-landing">Response:
+              <ul>
+                {this.state.results}
+              </ul>
+            </Panel>
           </Col>
         </Row>
       </form>
