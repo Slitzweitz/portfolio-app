@@ -1,8 +1,9 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # dependencies
-#/node_modules
-#/Express/node_modules
+/node_modules
+node_modules
+/Express/node_modules
 /Express
 Express
 /src/react-backend/node_modules
