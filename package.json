@@ -25,7 +25,7 @@
     "deploy": "npm run build&&gh-pages -d build",
     "heroku-postbuild": "npm run build"
   },
-  "homepage": "http://slitzweitz.github.io/portfolio-app",
+  "homepage": "https://boiling-bayou-37445.herokuapp.com/",
   "devDependencies": {
     "concurrently": "^3.5.0",
     "gh-pages": "^1.0.0"
