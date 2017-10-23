@@ -65,6 +65,8 @@ class ApiPicker extends Component {
       queryType: apiUrls[lookup].queryType,
       results: '',
       skills: apiUrls[lookup].explanation,
+      button: 'primary',
+      buttonText: 'Submit'
       });
     console.log('picked: ' + event.target.value);
   };
@@ -73,7 +75,8 @@ class ApiPicker extends Component {
     this.setState({
         value: event.target.value,
         query: event.target.value,
-        button: 'primary'
+        button: 'primary',
+        buttonText: 'Submit'
       });
     console.log('updated query to: ' + event.target.value);
   };

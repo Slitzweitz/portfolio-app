@@ -53,12 +53,9 @@ class ContactForm extends Component {
 
     for (var x in reqbody) {
       formobj.append(x, reqbody[x]);
-      console.log(formobj);
     };
 
-    console.log(formobj);
-
-    fetch('https://mighty-forest-57265.herokuapp.com/contact', {
+    fetch('https://cors-anywhere.herokuapp.com/https://mighty-forest-57265.herokuapp.com/contact', {
       method: 'POST',
       body: formobj
     })

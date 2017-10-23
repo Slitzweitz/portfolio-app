@@ -29,13 +29,13 @@ class App extends Component {
                   React Native
                 </li>
                 <li>
-                  Webpack
+                  Hard Work
                 </li>
                 <li>
                   Nodejs with Express
                 </li>
                 <li>
-                  Babel(ES6)
+                  Babel and Webpack
                 </li>
               </ul>
             </Col>
