@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import { Grid, Row, Col, PageHeader } from 'react-bootstrap';
 import ApiPicker from './Components/ApiPicker';
 import NavMenu from './Components/NavMenu';
-import Weather from './Components/Weather';
+import Coords from './Components/Coords.jsx';
 import ContactForm from './Components/ContactForm';
 import Showcase from './Components/Showcase';
 import './App.css';
-// import headshot from './UpdatedHeadshot.jpg';
+import ButtonClock from './Components/Clock/ButtonClock';
+// <ButtonClock />
 
 class App extends Component {
   render() {
@@ -40,6 +41,8 @@ class App extends Component {
               </ul>
             </Col>
           </Row>
+          <ButtonClock />
+          <Coords />
           <Row className="sandbox-stack" id="sandbox-stack">
           <PageHeader>
           My API Sandbox
@@ -54,7 +57,6 @@ class App extends Component {
           </Row>
           <PageHeader>Contact Me</PageHeader>
           <ContactForm />
-          <Weather />
         </Grid>
       </div>
     );

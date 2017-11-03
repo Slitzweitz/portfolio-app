@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {  FormGroup, FormControl, ControlLabel, Label, Button, Row, Col, Panel } from 'react-bootstrap';
 import { apiData } from '../apiData';
 import fetch from 'isomorphic-fetch';
+
 // an object containing info for each API
 // APIname: {
 //   titleMain: "",

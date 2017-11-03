@@ -51,12 +51,12 @@ li {
 
 .sandbox-stack {
   margin-top: 100px;
-  height: 1200px;
+  height: 1000px;
 }
 
 .fcc-stack {
   margin-top: 65px;
-  min-height: 950px;
+  min-height: 750px;
 }
 
 .contact-stack {
@@ -81,16 +81,42 @@ li {
     font-size: 24px;
 }
 
+.weather-wrapper {
+  min-height: 150px;
+}
+
 /*
-Clock CSS:
+  Hawks colors
+    red feather, green and white highlights
+      - red: #d01a28
+      - green: #2f843c
+      - white: #ffffff
+    green feather, yellow highlights
+      - green: #2f843c
+      - yellow: #f9d202
+    yellow feather, blue highlights
+      - yellow: #f9d202
+      - blue: #091271
+    orange feather, white highlights
+      - orange: #f26717
+
 */
 
-.clock-face {
-  height: 595px;
-  width: 595px;
-  -moz-border-radius: 100%;
-  -webkit-border-radius: 100%;
-  border-radius: 100%;
-  background: transparent;
-  border: 2px solid black;
+/*
+  Clock CSS:
+*/
+
+
+svg {
+  stroke: #000;
+  stroke-width: 3px;
+}
+
+#rim {
+  fill: none;
+  stroke: #999;
+}
+
+.clock-datapoint {
+  stroke-width: 3;
 }
