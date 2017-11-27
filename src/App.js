@@ -5,59 +5,66 @@ import NavMenu from './Components/NavMenu';
 import Coords from './Components/Coords.jsx';
 import ContactForm from './Components/ContactForm';
 import Showcase from './Components/Showcase';
+import Footer from './Components/Footer';
 import './App.css';
 import ButtonClock from './Components/Clock/ButtonClock';
 // <ButtonClock />
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      componentShow: false
+    }
+    this.onClick = this.onClick.bind(this);
+  }
+  onClick() {
+    !this.state.componentShow ?
+    this.setState({
+      componentShow: true
+    }) :
+    this.setState({
+      componentShow: false
+    })
+  }
+
   render() {
     return (
       <div className="App">
       <NavMenu />
         <div className="App-header">
-          <PageHeader>Colin Barlow</PageHeader>
+          Colin Barlow
         </div>
         <Grid>
-          <Row className="top-stack">
-            <Col md={4} mdOffset={2}>
-              <p className="App-intro">
-                Welcome to my portfolio page! Here are a few of the technologies that make this page work:
-              </p>
-            </Col>
-            <Col md={4}>
-              <ul>
-                <li>
-                  React Native
-                </li>
-                <li>
-                  Hard Work
-                </li>
-                <li>
-                  Nodejs with Express
-                </li>
-                <li>
-                  Babel and Webpack
-                </li>
-              </ul>
-            </Col>
-          </Row>
           <ButtonClock />
-          <Coords />
+          <Row className="weather-stack">
+            <Col md={4}>
+              <div className="weather-desc">
+                <p>This weather component was built using React principles. It passes data down to children components through props. It uses a standard browser API to get user location (if allowed), which then uses fetch to call a third party API (openweathermap) for the current weather, based on the user's location.</p>
+              </div>
+            </Col>
+            <Col md={8}>
+              <Coords />
+            </Col>
+          </Row>
           <Row className="sandbox-stack" id="sandbox-stack">
-          <PageHeader>
-          My API Sandbox
-          </PageHeader>
-          <ApiPicker />
+            <PageHeader onClick={this.onClick}>
+            My API Sandbox 
+            </PageHeader>
+            {this.state.componentShow ? <ApiPicker /> : null}
           </Row>
-          <PageHeader>
-          Front-End Projects
-          </PageHeader>
           <Row className="fcc-stack">
-            <Showcase />
+            <PageHeader onClick={this.onClick}>
+              Front-End Projects
+            </PageHeader>
+            {this.state.componentShow ? <Showcase /> : null}
           </Row>
-          <PageHeader>Contact Me</PageHeader>
-          <ContactForm />
+          <Row className="contact-stack">
+            <PageHeader onClick={this.onClick}>Contact Me</PageHeader>
+            {this.state.componentShow ? <ContactForm /> : null}
+          </Row>
         </Grid>
+        <Footer />
       </div>
     );
   }
@@ -68,7 +75,29 @@ export default App;
 /**
 <img src={headshot} className="App-headshot" alt="headshot" />
 
-
+<Row className="top-stack">
+  <Col md={4} mdOffset={2}>
+    <p className="App-intro">
+      Welcome to my portfolio page! Here are a few of the technologies that make this page work:
+    </p>
+  </Col>
+  <Col md={4}>
+    <ul>
+      <li>
+        React Native
+      </li>
+      <li>
+        Hard Work
+      </li>
+      <li>
+        Nodejs with Express
+      </li>
+      <li>
+        Babel and Webpack
+      </li>
+    </ul>
+  </Col>
+</Row>
 
 
 

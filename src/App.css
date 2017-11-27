@@ -14,9 +14,10 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
-  padding: 200px;
+  font-size: 36px;
+  height: 250px;
   color: white;
+  padding-top: 55px;
   position: relative;
 }
 
@@ -33,47 +34,25 @@ li {
   min-height: 450px;
 }
 
-.about-stack {
-  min-height: 450px;
-}
-
-.frontend {
-  min-height: 400px;
-}
-
-.col-xs-2{
-  display: inline;
-}
-
-.frontend {
-  min-height: 265px;
-}
-
 .sandbox-stack {
   margin-top: 100px;
-  height: 1000px;
+}
+
+.weather-stack {
+  margin-top: 100px;
 }
 
 .fcc-stack {
-  margin-top: 65px;
-  min-height: 750px;
+  margin-top: 100px;
 }
 
 .contact-stack {
-  min-height: 450px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .api-dropdown {
   height: 50px;
-}
-
-.skill-instruction-split {
-  margin-top: 55px;
-}
-
-.skills-sandbox, .instruction-sandbox {
-  min-height: 200px;
-  max-height: 375px;
 }
 
 .response-landing {
@@ -81,8 +60,47 @@ li {
     font-size: 24px;
 }
 
+.full-wrap {
+  background-color: #eee;
+}
+
 .weather-wrapper {
-  min-height: 150px;
+  min-height: 250px;
+  display: flex;
+  flex-direction: row;
+}
+.weather-desc {
+  padding-top: 85px;
+}
+.weather-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.weather-right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.temp, .clouds, .wind {
+  color: #fff;
+  background-color: black;
+  padding-top: 85px;
+  flex-grow: 1;
+}
+
+.temp {
+  flex-grow: 2;
+}
+
+.footer {
+  height: 300px;
+  background-color: black;
+  color: white;
+  padding-top: 120px;
 }
 
 /*
@@ -106,10 +124,12 @@ li {
   Clock CSS:
 */
 
-
 svg {
   stroke: #000;
-  stroke-width: 3px;
+}
+.second-tick {
+  stroke-width: 3;
+  fill: #000;
 }
 
 #rim {
@@ -117,6 +137,10 @@ svg {
   stroke: #999;
 }
 
-.clock-datapoint {
-  stroke-width: 3;
+.clock-desc {
+  padding-top: 135px;
+}
+
+text {
+  font-size: 12px;
 }

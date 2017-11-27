@@ -70,51 +70,49 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <Row className="contact-stack" id="contact-stack">
-        <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
-          <form onSubmit={this.handleSubmit}>
-            <FieldGroup
-              id="formName"
-              type="text"
-              label="Name"
-              name="personName"
-              placeholder="Your Name"
-              value={this.state.personName}
-              onChange={this.handleChange}
-            />
-            <FieldGroup
-              id="formEmail"
-              type="text"
-              label="Email"
-              name="email"
-              placeholder="Your Email"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <FieldGroup
-              id="formPhone"
-              type="text"
-              label="Phone"
-              name="phone"
-              placeholder="Your Phone"
-              value={this.state.phone}
-              onChange={this.handleChange}
-            />
-            <FieldGroup
-              id="formCompany"
-              type="text"
-              label="Company"
-              name="company"
-              placeholder="Your Company"
-              value={this.state.company}
-              onChange={this.handleChange}
-            />
-            <Button type="submit">
-              Submit
-            </Button>
-          </form>
-        </Col>
-      </Row>
+      <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+        <form onSubmit={this.handleSubmit}>
+          <FieldGroup
+            id="formName"
+            type="text"
+            label="Name"
+            name="personName"
+            placeholder="Your Name"
+            value={this.state.personName}
+            onChange={this.handleChange}
+          />
+          <FieldGroup
+            id="formEmail"
+            type="text"
+            label="Email"
+            name="email"
+            placeholder="Your Email"
+            value={this.state.email}
+            onChange={this.handleChange}
+          />
+          <FieldGroup
+            id="formPhone"
+            type="text"
+            label="Phone"
+            name="phone"
+            placeholder="Your Phone"
+            value={this.state.phone}
+            onChange={this.handleChange}
+          />
+          <FieldGroup
+            id="formCompany"
+            type="text"
+            label="Company"
+            name="company"
+            placeholder="Your Company"
+            value={this.state.company}
+            onChange={this.handleChange}
+          />
+          <Button type="submit">
+            Submit
+          </Button>
+        </form>
+      </Col>
     )
   }
 }

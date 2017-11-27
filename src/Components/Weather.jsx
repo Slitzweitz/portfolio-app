@@ -29,14 +29,14 @@ class Weather extends Component {
   render() {
     return (
       <div className="weather-wrapper">
-        <div className="temp">
-          {this.state.temp}
-        </div>
         <div className="clouds">
-          {this.state.clouds}
+          <h1>{this.state.clouds}</h1>
+        </div>
+        <div className="temp">
+          <h1>{this.state.temp}</h1>
         </div>
         <div className="wind">
-          {this.state.wind}
+          <h1>{this.state.wind}</h1>
         </div>
       </div>
     )
