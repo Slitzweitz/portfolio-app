@@ -11,6 +11,7 @@ class Coords extends Component {
     super(props);
     this.state = {
       temp: "",
+      tempC: "",
       clouds: "",
       wind: "",
       lat: "",
@@ -36,15 +37,16 @@ class Coords extends Component {
         fetch(this.state.url, { method: "GET" })
         .then((doc) => doc.json())
         .then((respJson) => {
-          console.log(respJson);
           var f = (respJson.main.temp - 273.18) * 1.8 + 32;
           f = f.toFixed(1);
           var c = (respJson.main.temp - 273.18).toFixed(1);
           this.setState({
             temp: f + " Degrees",
+            tempC: c + " Degrees Celsius",
             clouds: respJson.weather[0].description,
             wind: "Wind: " + respJson.wind.speed + " MPH"
           })
+          console.log(this.state.tempC);
         })
         .catch(err => {
           console.log(err.message);

@@ -36,8 +36,14 @@ class App extends Component {
           Colin Barlow
         </div>
         <Grid>
+          <PageHeader>
+            D3 Data Clock
+          </PageHeader>
           <ButtonClock />
           <Row className="weather-stack">
+            <PageHeader>
+              Weather App
+            </PageHeader>
             <Col md={4}>
               <div className="weather-desc">
                 <p>This weather component was built using React principles. It passes data down to children components through props. It uses a standard browser API to get user location (if allowed), which then uses fetch to call a third party API (openweathermap) for the current weather, based on the user's location.</p>
@@ -48,20 +54,32 @@ class App extends Component {
             </Col>
           </Row>
           <Row className="sandbox-stack" id="sandbox-stack">
-            <PageHeader onClick={this.onClick}>
-            My API Sandbox 
+            <PageHeader>
+            My API Sandbox
             </PageHeader>
-            {this.state.componentShow ? <ApiPicker /> : null}
+            <ApiPicker />
           </Row>
           <Row className="fcc-stack">
-            <PageHeader onClick={this.onClick}>
+            <PageHeader>
               Front-End Projects
             </PageHeader>
-            {this.state.componentShow ? <Showcase /> : null}
+            <Showcase />
           </Row>
           <Row className="contact-stack">
-            <PageHeader onClick={this.onClick}>Contact Me</PageHeader>
-            {this.state.componentShow ? <ContactForm /> : null}
+            <PageHeader>
+              Contact Me
+            </PageHeader>
+            <div>
+            <ContactForm />
+            <Col lg={4} md={6} className="profiles-logo">
+              <a href="https://linkedin.com/in/colinmbarlow">
+              <img height="85px" src="https://colinmbarlow.com/img/linkedin-logo.svg" id="LinkedIn" alt="LinkedIn" />
+            </a>
+            <a href="https://github.com/Slitzweitz">
+              <img height="85px" src="https://colinmbarlow.com/img/github-logo.png" id="Github" alt="GitHub"/>
+            </a>
+            </Col>
+            </div>
           </Row>
         </Grid>
         <Footer />

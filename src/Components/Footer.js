@@ -6,9 +6,9 @@ export default class Footer extends Component {
     return (
       <Row className="footer">
         <Col md={6} mdOffset={3}>
-          <h2>
-            Made with love by Colin Barlow
-          </h2>
+          <h3>
+            Made with &#9829; by Colin Barlow
+          </h3>
         </Col>
       </Row>
     )

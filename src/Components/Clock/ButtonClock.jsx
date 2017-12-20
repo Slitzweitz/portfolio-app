@@ -22,23 +22,23 @@ import { Row, Col } from "react-bootstrap";
 
 
 const radians = 0.0174532925,
-outerRadius = 200,
+outerRadius = 175,
 labelRadius = outerRadius + 20,
 fullCircle = Math.PI * 2,
-margin = 50,
-width = (outerRadius+margin)*2,
-height = (outerRadius+margin)*2,
+// margin = 50,
+// width = (outerRadius+margin)*2,
+// height = (outerRadius+margin)*2,
 hourLabelRadius = outerRadius - 30,
 hourLabelYOffset = 7,
-markLength = 17,
-yOffset = 7;
+markLength = 17;
+// yOffset = 7;
 
 // a dummy array of times converted to decimal time (with no am/pm for now)
 var times = [ 20.72, 21.00, 21.00, 21.27,21.37,21.48,21.48,21.52,21.63,21.95,22.58,22.72,22.73,22.75,20.01,22.32,21.27,19.85,16.68,16.68,16.90,16.90,18.01,18.01,16.62,17.57,17.77,18.97,20.27,20.28,20.35,21.00,22.27,22.27,7.32,8.70,16.53,17.00,17.47,19.00,19.33,19.35,17.47,17.65,19.37,22.30,17.01,17.01,17.80,20.00,21.98,16.40,10.98,24.30,24.38,24.47,24.83,24.98,13.01,13.01,13.01,14.00,14.00,14.00,14.00,14.01,14.25,14.35,14.37,14.97,14.97,15.43,15.45,16.01,16.01,11.62,11.70,19.38,19.48,21.97,8.28,17.25,18.01,19.00,16.37,23.87,20.90,21.00,7.22,20.68,20.70,16.63 ];
 
 const styles = {
-  width   : 600,
-  height  : 525,
+  width   : 425,
+  height  : 405,
   // stroke: "black",
   // strokeWidth: 1
 };
@@ -55,21 +55,21 @@ export default class ButtonClock extends Component {
   }
 
   componentWillMount() {
-    var myHeaders = new Headers();
-
-    fetch(this.state.url, {
-      method: "GET",
-      headers: myHeaders,
-
-    })
-      .then((doc) => doc.json())
-      .then((respJson) => {
-        times.push(respJson);
-        console.log(respJson);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+  //   var myHeaders = new Headers();
+  //
+  //   fetch(this.state.url, {
+  //     method: "GET",
+  //     headers: myHeaders,
+  //
+  //   })
+  //     .then((doc) => doc.json())
+  //     .then((respJson) => {
+  //       times.push(respJson);
+  //       console.log(respJson);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     })
   }
 
   componentDidMount() {
@@ -117,9 +117,9 @@ export default class ButtonClock extends Component {
       .append("path")
         .attr("d", arcData);
 
-    var seconds = face.selectAll(".second-tick")
-      .data(times)
-        .enter();
+    // var seconds = face.selectAll(".second-tick")
+    //   .data(times)
+    //     .enter();
 
     face.selectAll(".second-tick")
       .data(times)
@@ -171,7 +171,7 @@ export default class ButtonClock extends Component {
             This component uses D3 (v4) to display times on a 24 hour clock.
           </p>
           <p>
-            The lines represent times of button presses on my Amazon IOT developer button. Hover to see the exact time (.1 minute = 6 minutes). When the button is pressed it calls an AWS Lambda function, which triggers an IFTTT webhook to add the button press data to a Google Speadsheet.
+            The lines represent times of button presses on my Amazon IOT developer button. <b>Hover</b> to see the exact time (.1 minute = 6 minutes). When the button is pressed it calls an AWS Lambda function, which triggers an IFTTT webhook to add the button press data to a Google Speadsheet.
           </p>
           <p>
             The component could be used to more visually represent the time of day when any series of events occurred. For example, you could feed in a series of times when a certain person tweets or posts pictures and see those times represented on the 24 hour clock.

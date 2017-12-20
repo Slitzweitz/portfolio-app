@@ -1,8 +1,8 @@
 // This component will send a request to a back end Express server,
-// which is listening on port 8080. That server will then send the form
-// information to me using SMTP (Express-Mailer with Gmail SMTP)
+// which is listening on port 3001. That server will then send the form
+// information using the SendGrid API
 import React, { Component } from 'react';
-import { Row, Col, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
+import { Col, FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
 
 function FieldGroup({ id, label, help, ...props }) {
   return (
@@ -55,8 +55,9 @@ class ContactForm extends Component {
       formobj.append(x, reqbody[x]);
     };
 
-    fetch('https://cors-anywhere.herokuapp.com/https://mighty-forest-57265.herokuapp.com/contact', {
+    fetch('http://localhost:3001/contact', {
       method: 'POST',
+      mode: 'no-cors',
       body: formobj
     })
     .then(res => res.json())
@@ -70,7 +71,7 @@ class ContactForm extends Component {
 
   render() {
     return (
-      <Col lg={8} md={6} mdOffset={3} lgOffset={2}>
+      <Col lg={8} md={6}>
         <form onSubmit={this.handleSubmit}>
           <FieldGroup
             id="formName"
