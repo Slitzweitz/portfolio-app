@@ -4,8 +4,8 @@ var app = require('express')(),
     mailer = require('express-mailer'),
     bodyParser = require('body-parser'),
     multer  = require('multer'),
-    upload = multer(),
-    expressValidator = require('express-validator');
+    upload = multer();
+    // expressValidator = require('express-validator');
 // using SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 const sgMail = require('@sendgrid/mail'),
@@ -21,9 +21,6 @@ app.post('/contact', upload.array(), (req, res) => {
   // make sure expects application/json
   // req.body will contain information
   // validate and sanitize info:
-  req.checkBody('personName', 'Invalid name').isAlpha();
-
-  var contactName = req.body.personName;
 
   if (req.body) {
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
