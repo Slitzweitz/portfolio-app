@@ -10,7 +10,7 @@ import './App.css';
 import ButtonClock from './Components/Clock/ButtonClock';
 // <ButtonClock />
 
-/// Just checking to see how the desktop GitHub app works
+/// testestetestest
 
 class App extends Component {
   constructor(props) {
